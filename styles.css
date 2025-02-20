@@ -1,0 +1,85 @@
+/* Estilo para o vídeo de fundo */
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que o vídeo cubra toda a tela */
+    z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+}
+
+body {
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+    }
+    color: white; /* Muda a cor do texto para branco para contrastar com o fundo */
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique sobre o vídeo */
+}
+
+.quote-box {
+    max-width: 80%;
+    padding: 20px;
+    background-color: rgba(249, 249, 249, 0.8); /* Fundo semi-transparente */
+    border-left: 10px solid #9a9861;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    margin-top: 100px; /* Desce a caixa de texto */
+}
+
+#quote {
+    font-size: 2.5rem;
+    font-style: italic;
+    color: #333; /* Mantém a cor do texto escura para contrastar com o fundo claro */
+    margin: 0;
+}
+
+#author {
+    font-size: 1.5rem;
+    text-align: right;
+    color: #777; /* Mantém a cor do texto escura para contrastar com o fundo claro */
+    margin-top: 10px;
+}
+
+.clock {
+    margin-top: 250px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #333; /* Mantém a cor do texto escura para contrastar com o fundo claro */
+    background-color: rgba(249, 249, 249, 0.8); /* Fundo semi-transparente */
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes flip {
+    0% { transform: rotateY(0deg); }
+    50% { transform: rotateY(90deg); }
+    100% { transform: rotateY(0deg); }
+}
+
+.flip-effect {
+    animation: flip 1s ease;
+}
