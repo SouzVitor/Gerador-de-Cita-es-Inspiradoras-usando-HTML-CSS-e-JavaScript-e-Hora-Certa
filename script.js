@@ -31,15 +31,14 @@ const quotes = [
 
 const quoteElement = document.getElementById('quote');
 const authorElement = document.getElementById('author');
-const quoteBox = document.getElementById('quote-box');
+const pageElement = document.getElementById('page');
 const clockElement = document.getElementById('clock');
 
-// Função para exibir uma citação aleatória
 function showRandomQuote() {
     // Aplica o efeito de virar página
-    quoteBox.classList.add('flip-effect');
+    pageElement.classList.add('flip-effect');
 
-    // Aguarda a metade da animação para trocar a citação
+    // Aguarda o fim da animação para trocar a citação
     setTimeout(() => {
         const randomIndex = Math.floor(Math.random() * quotes.length);
         quoteElement.textContent = `"${quotes[randomIndex].text}"`;
@@ -47,25 +46,20 @@ function showRandomQuote() {
 
         // Remove o efeito após a animação terminar
         setTimeout(() => {
-            quoteBox.classList.remove('flip-effect');
-        }, 500); // Tempo correspondente à metade da animação
-    }, 500); // Tempo correspondente à metade da animação
+            pageElement.classList.remove('flip-effect');
+        }, 1000); // Tempo correspondente à duração da animação
+    }, 500); // Troca a citação no meio da animação
 }
 
 // Função para atualizar o relógio
 async function updateClock() {
     try {
-        // Faz uma requisição à WorldTimeAPI
         const response = await fetch('https://worldtimeapi.org/api/ip');
         const data = await response.json();
-
-        // Extrai a hora atual
         const datetime = new Date(data.datetime);
         const hours = datetime.getHours().toString().padStart(2, '0');
         const minutes = datetime.getMinutes().toString().padStart(2, '0');
         const seconds = datetime.getSeconds().toString().padStart(2, '0');
-
-        // Atualiza o elemento do relógio
         clockElement.textContent = `${hours}:${minutes}:${seconds}`;
     } catch (error) {
         console.error('Erro ao buscar a hora:', error);
