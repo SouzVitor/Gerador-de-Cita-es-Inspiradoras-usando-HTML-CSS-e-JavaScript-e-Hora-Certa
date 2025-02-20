@@ -83,3 +83,43 @@ body {
 .flip-effect {
     animation: flip 1s ease;
 }
+
+/* Estilos para dispositivos móveis (largura menor que 768px) */
+@media (max-width: 768px) {
+    .quote-box {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    #quote {
+        font-size: 1.8rem; /* Reduz o tamanho da fonte para caber na tela menor */
+    }
+
+    #author {
+        font-size: 1.2rem;
+    }
+
+    .clock {
+        font-size: 2rem;
+        margin-top: 50px;
+    }
+
+    .container {
+        justify-content: flex-start; /* Ajusta o alinhamento para evitar que o conteúdo fique muito centralizado */
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    #video-background {
+        display: none; /* Oculta o vídeo em dispositivos móveis */
+    }
+}
+
+#quote {
+    font-size: 2rem; /* Usar 'rem' faz com que o tamanho da fonte seja relativo ao tamanho da fonte raiz */
+}
+
+.clock {
+    font-size: 3rem;
+}
